@@ -92,7 +92,7 @@ jQuery(document).ready(function($) {
     else var str = $(this).serialize();
     var action = $(this).attr('action');
     if( ! action ) {
-      action = 'http://localhost:3000/api/v1/contacts';
+      action = 'https://madhav-contact.herokuapp.com/api/v1/contacts';
     }
     $.ajax({
       type: "POST",

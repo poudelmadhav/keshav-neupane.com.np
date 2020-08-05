@@ -92,28 +92,24 @@ jQuery(document).ready(function($) {
     else var str = $(this).serialize();
     var action = $(this).attr('action');
     if( ! action ) {
-      action = 'contactform/contactform.php';
+      action = 'http://localhost:3000/api/v1/contacts';
     }
-    // $.ajax({
-    //   type: "POST",
-    //   url: action,
-    //   data: str,
-    //   success: function(msg) {
-    //     // alert(msg);
-    //     if (msg == 'OK') {
-    //       $("#sendmessage").addClass("show");
-    //       $("#errormessage").removeClass("show");
-    //       $('.contactForm').find("input, textarea").val("");
-    //     } else {
-    //       $("#sendmessage").removeClass("show");
-    //       $("#errormessage").addClass("show");
-    //       $('#errormessage').html(msg);
-    //     }
-
-    //   }
-    // });
-    // return false;
-    $('form.contactForm').submit()
+    $.ajax({
+      type: "POST",
+      url: action,
+      data: str,
+      success: function(msg) {
+        $("#sendmessage").addClass("show");
+        $("#errormessage").removeClass("show");
+        $('.contactForm').find("input, textarea").val("");
+      },
+      error: function(xhr, statusText, err) {
+        $("#sendmessage").removeClass("show");
+        $("#errormessage").addClass("show");
+        $('#errormessage').html("Something went wrong. Please try again later.");
+      }
+    });
+    return false;
   });
 
 });

@@ -94,6 +94,7 @@ jQuery(document).ready(function($) {
     if( ! action ) {
       action = 'https://madhav-contact.herokuapp.com/api/v1/contacts';
     }
+    $("#submit-btn").html('<img src="images/loading.gif" height="35">');
     $.ajax({
       type: "POST",
       url: action,
@@ -109,6 +110,7 @@ jQuery(document).ready(function($) {
         $('#errormessage').html("Something went wrong. Please try again later.");
       }
     });
+    $("#submit-btn").html("Send message")
     return false;
   });
 

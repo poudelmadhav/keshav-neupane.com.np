@@ -92,7 +92,7 @@ jQuery(document).ready(function($) {
     else var str = $(this).serialize();
     var action = $(this).attr('action');
     if( ! action ) {
-      action = 'https://madhav-contact.herokuapp.com/api/v1/contacts';
+      action = 'https://paudelm.com.np/api/v1/contacts';
     }
     $("#submit-btn").html('<img src="images/loading.gif" height="35">');
     $.ajax({

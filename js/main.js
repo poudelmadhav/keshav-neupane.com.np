@@ -2,6 +2,9 @@
 $(document).ready(function() {
 
   'use strict';
+  
+  // Wakeup from heroku sleep
+  fetch("https://paudelm.com.np/_health");
 
   // ========================================================================= //
   //  //SMOOTH SCROLL
